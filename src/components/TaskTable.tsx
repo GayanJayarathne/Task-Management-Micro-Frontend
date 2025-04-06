@@ -10,7 +10,7 @@ import {
   Typography,
 } from "antd";
 import type { TableProps } from "antd";
-import { EyeOutlined, RestOutlined } from "@ant-design/icons";
+import { EditOutlined, RestOutlined } from "@ant-design/icons";
 import TaskForm, { FormFieldType } from "./TaskForm";
 import { getArrayFromLocalStorage } from "../utils/helpers";
 import api from "../sevices/api";
@@ -71,7 +71,7 @@ const TaskTable = () => {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <Button icon={<EyeOutlined />} onClick={() => onEditTask(record)} />
+          <Button icon={<EditOutlined />} onClick={() => onEditTask(record)} />
           <Button
             disabled={true}
             icon={<RestOutlined />}
@@ -173,7 +173,7 @@ const TaskTable = () => {
         dataSource={taskData && taskData.length > 0 ? taskData : []}
       />
       <Drawer
-        title="View task"
+        title="Update task"
         width={720}
         onClose={onClose}
         open={open}
