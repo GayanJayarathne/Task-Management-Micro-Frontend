@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setToLocalStorage } from "../utils/helpers";
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
@@ -37,7 +38,7 @@ api.interceptors.response.use(
 
         const newAccessToken = data.token;
 
-        localStorage.setItem("token", newAccessToken);
+        setToLocalStorage("token", newAccessToken);
 
         originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
 
